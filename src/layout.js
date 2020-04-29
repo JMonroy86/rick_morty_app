@@ -18,6 +18,7 @@ import Home from './view/home'
 import Episode from './view/episode'
 import Characters from './view/characters'
 import Navbar from './components/navbar';
+import Login from './view/login';
 
 
 const Layout = () => {
@@ -29,6 +30,7 @@ const Layout = () => {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/Episode" component={Episode} />
                     <Route exact path="/Characters" component={Characters} />
+                    <Route exact path="/Login" component={Login} />
                 </Switch>
 
             </BrowserRouter>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import getState from './flux'
-import { wait } from '@testing-library/react';
 
 export const Context = React.createContext(null);
 
