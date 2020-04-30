@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom'
 
-const Characters =()=>{
+const Characters = () => {
     const { store, actions } = useContext(Context);
     console.log(store.characters)
-    return(
+    return (
         <div className="container">
             <div className="row">
-            <div className="col-md-12">
+                <div className="col-md-12">
                     <div className="row">
-                        
+
                         {
                             store.characters.results != null ?
                                 (
@@ -26,11 +27,22 @@ const Characters =()=>{
                                                     </div>
 
                                                     <div className="card-body">
-                                                        <h4 className="card-title mt-1">{char.name}</h4>
+                                                        <h4 className="card-title title mt-1">{char.name}</h4>
                                                         <hr />
-                                                        <p><i className="fas fa-quote-left"></i> Created: {char.species}</p>
+                                                        <div className="row mytext-card">
+                                                            <div className="col-md-6">
+                                                                <p><i className="fas fa-quote-left pr-1"></i> Especie: {char.species}</p>
+                                                                <p><i className="fas fa-quote-left pr-1"></i> Gender: {char.gender}</p>
+                                                            </div>
+                                                            <div className="col-md-6">
+                                                                <p><i className="fas fa-quote-left pr-1"></i> Status: {char.status}</p>
+                                                                <p><i className="fas fa-quote-left pr-1"></i> Status: {char.origin.name}</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-
+                                                    <div className="card-footer">
+                                                        <Link to={"/Character/" + char.id}><h3 className="title text-decoration-none">Details</h3></Link>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )
@@ -70,8 +82,8 @@ const Characters =()=>{
                     </div>
                 </div>
             </div>
-            <button onClick={()=> actions.getCharacters(store.characters.info.next)}>NExt</button>
-            <button onClick={()=> actions.getCharacters(store.characters.info.prev)}>prev</button>   
+            <button onClick={() => actions.getCharacters(store.characters.info.next)}>NExt</button>
+            <button onClick={() => actions.getCharacters(store.characters.info.prev)}>prev</button>
         </div>
     )
 }

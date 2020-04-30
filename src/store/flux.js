@@ -1,89 +1,108 @@
-const getState = ({ getStore, getActions, setStore}) =>{
-    return{
-        store:{
-            users:{},
-            episodes:{},
-            characters:{},
-            weather:{},
-            money:{},
+const urlAPI = 'https://rickandmortyapi.com/api';
+const getState = ({ getStore, getActions, setStore }) => {
+    return {
+        store: {
+            users: {},
+            episodes: {},
+            characters: {},
+            weather: {},
+            money: {},
             path: 'http://localhost:3000',
             currentUser: null,
             username: '',
-            password:'',
+            password: '',
             errors: null,
+            active: {}
         },
         actions: {
             handleChange: e => {
                 setStore({
                     [e.target.name]: e.target.value,
-                   
+
                 })
             },
             login: (e, history) => {
                 e.preventDefault();
                 const store = getStore();
-                
+
                 fetch("https://reqres.in/api/register", {
                     method: 'POST',
                     body: JSON.stringify({
                         username: store.username,
                         password: store.password
                     }),
-                    headers:{
-                        'Content-Type':'application/json' //estoy enviando en formato json
+                    headers: {
+                        'Content-Type': 'application/json' //estoy enviando en formato json
                     }
                 })
-                .then(resp => resp.json())
-                 .then(data => {
-                    console.log(data)
-                    if(data.msg){
-                        setStore({
-                            errors: data
-                        })
-                    }else{
-                        setStore({
-                            currentUser:data,
-                            username:'',
-                            password:'',
-                            errors: null
-                        })
-                        history.push("/");
-                    }
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.msg) {
+                            setStore({
+                                errors: data
+                            })
+                        } else {
+                            const aut= {
+                                currentUser: data,
+                                username: '',
+                                password: '',
+                                errors: null
+                            }
+                            localStorage.setItem("auth", JSON.stringify(aut))
+                            setStore({...aut})
+                            history.push("/");
+                        }
+                    })
+            },
+            revalidate: user =>{
+                console.log(user, {...user}, "soy redirect")
+                setStore({
+                    ...user
                 })
             },
 
-            
-            getUsers: url =>{
+            getUsers: url => {
                 fetch(url)
-                .then(resp => resp.json())
-                .then(data => {
-                    // console.log(data)
-                    setStore({
-                        users : data
+                    .then(resp => resp.json())
+                    .then(data => {
+                        // console.log(data)
+                        setStore({
+                            users: data
+                        })
                     })
-                })
             },
-            getEpisodes: url =>{
+            getEpisodes: url => {
                 fetch(url)
-                .then(resp => resp.json())
-                .then(data => {
-                    // console.log(data)
-                    setStore({
-                        episodes : data
+                    .then(resp => resp.json())
+                    .then(data => {
+                        // console.log(data)
+                        setStore({
+                            episodes: data
+                        })
                     })
-                })
             },
-            getCharacters: async url =>{
+            getCharacters: async url => {
                 fetch(url)
-                .then(resp => resp.json())
-                .then(data => {
-                    // console.log(data)
-                    setStore({
-                        characters : data
+                    .then(resp => resp.json())
+                    .then(data => {
+                        // console.log(data)
+                        setStore({
+                            characters: data
+                        })
                     })
-                })
             },
-            
+            getChar: (id) => {
+                fetch(`${urlAPI}/character/${id}`)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        // console.log(data);
+                        setStore({
+                            active: data
+                        });
+                    })
+            },
+
         }
     }
 }

@@ -21,9 +21,9 @@ const Login = props => {
                             <form onSubmit={e => actions.login(e, props.history)}>
                                 <div className="form-group">
                                     <label className="title-login-form" htmlFor="exampleInputEmail1">Email address</label>
-                                    <input  className="form-control" placeholder="Enter email" type="email" id="username" name="username"
-                    value={store.username}
-                    onChange={actions.handleChange} />
+                                    <input className="form-control" placeholder="Enter email" type="email" id="username" name="username"
+                                        value={store.username}
+                                        onChange={actions.handleChange} />
                                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div className="form-group">

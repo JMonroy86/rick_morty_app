@@ -22,6 +22,7 @@ const injectContext = PassedComponent => {
             this.state.actions.getEpisodes('https://rickandmortyapi.com/api/episode');
             this.state.actions.getCharacters('https://rickandmortyapi.com/api/character');
             this.state.actions.getUsers('https://reqres.in/api/users?page=2');
+            
         }
         render(){
             return(

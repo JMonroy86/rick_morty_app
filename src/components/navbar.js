@@ -15,13 +15,18 @@ const Navbar = () => {
                     <ul className="list-unstyled title list-inline text-center pt-3 text-dark-50">
                         <li className="list-inline-item px-5"><Link to="/" className="text-decoration-none">Home</Link></li>
                         {
-                            store.currentUser !== null && (
+                            store.currentUser !== null ?
+                             (
                                 <>
                                 <li className="list-inline-item px-5"><Link to="/Episode" className="text-decoration-none"> Episode </Link></li>
                                 <li className="list-inline-item px-5"><Link to="/Characters" className="text-decoration-none"> Characters </Link></li>
                                 <li className="list-inline-item px-5"><Link to="/Episode" className="text-decoration-none"> Episode </Link></li>
                                 </>
                             )
+                            :
+                            
+                                null
+                            
                         }
 
                         <li className="list-inline-item px-5"><Link to="/Login" className="text-decoration-none"> Login </Link></li>
