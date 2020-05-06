@@ -28,9 +28,9 @@ const Layout = () => {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <MasterRoute exact path="/Episode" component={Episode} />
-                    <Route exact path="/Characters" component={Characters} />
+                    <MasterRoute exact path="/Characters" component={Characters} />
                     <Route exact path="/Login" component={Login} />
-                    <Route exact path="/Character/:id" component={Char}  />
+                    <MasterRoute exact path="/Character/:id" component={Char}  />
                     <Route component={Notfound} />
                 </Switch>
 

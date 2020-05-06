@@ -1,4 +1,7 @@
 const urlAPI = 'https://rickandmortyapi.com/api';
+const foodURL = 'https://api.spoonacular.com/recipes/search'
+const apiKey = 'apiKey=1936f7709214411c90bc2534a676d46f';
+const query = 'query=cheese&number=2';
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
@@ -12,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             username: '',
             password: '',
             errors: null,
-            active: {}
+            active: {},
+            food:{}
         },
         actions: {
             handleChange: e => {
@@ -82,6 +86,16 @@ const getState = ({ getStore, getActions, setStore }) => {
                         })
                     })
             },
+            getFood: url => {
+                fetch(`${foodURL}?${apiKey}&${query}`)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data)
+                        setStore({
+                            food: data
+                        })
+                    })
+            },
             getCharacters: async url => {
                 fetch(url)
                     .then(resp => resp.json())
@@ -107,4 +121,6 @@ const getState = ({ getStore, getActions, setStore }) => {
     }
 }
 export default getState;
+
+
 
