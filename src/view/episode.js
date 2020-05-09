@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../store/appContext'
 import Carousel from '../components/carousel';
 import Hight from '../img/hight.gif'
+import Videomodal from '../components/video'
 
 
 let items = [];

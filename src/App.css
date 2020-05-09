@@ -119,3 +119,24 @@ body{
   background-size: contain;
   background-position: 0px;
 }
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+  background-color: #0000006e;
+  
+}
+.opening{
+  transition: transform .2s; /* Animation */
+        overflow: hidden;
+        cursor: pointer;
+        
+}
+.opening:hover{
+  transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  color: #ffa006 !important
+
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import RoundedImage from '../components/roundedImage';
 
 
 const Char = (props) => {
@@ -22,9 +23,7 @@ const Char = (props) => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-4">
-                                    <div className="avatar border-avatar mx-auto">
-                                        <img src={store.active.image} className="rounded-circle img-responsive" alt="Example photo" />
-                                    </div>
+                                   <RoundedImage photo={store.active.image} />
                                 </div>
                                 <div className="col-md-8 pl-5 pt-5">
                                     <h1 className="title-char">{store.active.name}</h1>

@@ -7,10 +7,7 @@ const Master = ({ children }) =>{
     console.log(children)
     return (
         <div>
-            <h1>hola</h1>
-            
-                {children}
-            
+           {children} 
         </div>
     )
 }
