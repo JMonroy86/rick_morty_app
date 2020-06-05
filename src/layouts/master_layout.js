@@ -4,7 +4,7 @@ import { Context } from '../store/appContext'
 import {Route, Redirect} from 'react-router-dom'
 
 const Master = ({ children }) =>{
-    console.log(children)
+    // console.log(children)
     return (
         <div>
            {children} 
@@ -13,7 +13,7 @@ const Master = ({ children }) =>{
 }
 const MasterRoute = ({component: Component, ...others}) =>{
     const { store, actions } = useContext(Context);
-    console.log(Component , "hola", store.currentUser)
+    // console.log(Component , "hola", store.currentUser)
     
     if (store.currentUser == null){
         const user = localStorage.getItem("auth")

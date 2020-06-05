@@ -21,8 +21,8 @@ const injectContext = PassedComponent => {
          componentDidMount(){
             this.state.actions.getEpisodes('https://rickandmortyapi.com/api/episode');
             this.state.actions.getCharacters('https://rickandmortyapi.com/api/character');
+            this.state.actions.getLocation('https://rickandmortyapi.com/api/location');
             this.state.actions.getUsers('https://reqres.in/api/users?page=2');
-            this.state.actions.getFood();
             
         }
         render(){

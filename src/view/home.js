@@ -11,9 +11,6 @@ import Videomodal from '../components/video'
 import Creator from '../components/creator';
 
 
-let items = [];
-
-
 const Home = props => {
     const { store, actions } = useContext(Context);
 

@@ -6,7 +6,7 @@ import Logo from '../img/logo.png'
 
 
 const Navbar = () => {
-    const { store, actions } = useContext(Context);
+    const { store} = useContext(Context);
 
     return (
         <div className="container">
@@ -20,7 +20,7 @@ const Navbar = () => {
                                 <>
                                 <li className="list-inline-item px-5"><Link to="/Episode" className="text-decoration-none"> Episode </Link></li>
                                 <li className="list-inline-item px-5"><Link to="/Characters" className="text-decoration-none"> Characters </Link></li>
-                                <li className="list-inline-item px-5"><Link to="/Episode" className="text-decoration-none"> Episode </Link></li>
+                                <li className="list-inline-item px-5"><Link to="/Location" className="text-decoration-none"> Location </Link></li>
                                 </>
                             )
                             :

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import injectContext from './store/appContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +13,7 @@ import 'bootstrap';
 import Home from './view/home'
 import Episode from './view/episode'
 import Characters from './view/characters'
+import Location from './view/location'
 import Navbar from './components/navbar';
 import Login from './view/login';
 import Char from './view/char';
@@ -30,6 +31,7 @@ const Layout = () => {
                     <Route exact path="/" component={Home} />
                     <MasterRoute exact path="/Episode" component={Episode} />
                     <MasterRoute exact path="/Characters" component={Characters} />
+                    <MasterRoute exact path="/Location" component={Location} />
                     <Route exact path="/Login" component={Login} />
                     <MasterRoute exact path="/Character/:id" component={Char}  />
                     <Route component={Notfound} />
